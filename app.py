@@ -1,7 +1,3 @@
-from dotenv import load_dotenv
-
-load_dotenv()  # take environment variables from .env.
-
 import streamlit as st
 import os
 import google.generativeai as genai
@@ -44,10 +40,11 @@ def to_markdown(text):
   text = text.replace('•', '  *')
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
-os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+google_api_key = st.secrets["GOOGLE_API_KEY"]
 
-## Function to load OpenAI model and get respones
+genai.configure(api_key=google_api_key)
+
+## Function to load OpenAI model and get responses
 
 def get_gemini_response(question):
     model = genai.GenerativeModel('gemini-pro')
