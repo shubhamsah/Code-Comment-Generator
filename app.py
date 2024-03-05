@@ -4,7 +4,7 @@ import google.generativeai as genai
 
 from PIL import Image
 # Loading Image using PIL
-im = Image.open('/content/App_Icon.png')
+im = Image.open('./content/App_Icon.png)
 
 
 # Setup the google Gemini AI API Key
