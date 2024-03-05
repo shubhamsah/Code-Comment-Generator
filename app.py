@@ -54,10 +54,20 @@ st.sidebar.write("Temperature: Controls the randomness of the generated text. Hi
 temperature = st.slider("Temperature", 0.1, 1.0, 0.7, step=0.1, key="temperature")
 
 
-
+# Sample Code
+if st.button("Try It Example"):
+    example_code = """# Example Python code
+def calculate_square(x):
+    """
+    """
+    return x ** 2
+    """
+    st.text_area("Input:", value=example_code, key="input")
 
 # Input text area
 input_text = st.text_area("Input:", key="input")
+
+
 
 # Generate button
 submit_button = st.button("Generate")
