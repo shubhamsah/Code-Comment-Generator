@@ -2,6 +2,11 @@ import streamlit as st
 import os
 import google.generativeai as genai
 
+from PIL import Image
+# Loading Image using PIL
+im = Image.open('/content/App_Icon.png')
+
+
 # Setup the google Gemini AI API Key
 google_api_key = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=google_api_key)
@@ -47,7 +52,7 @@ def get_gemini_response(question):
         return None
 
 # Initialize the Streamlit app
-st.set_page_config(page_title="Code Comment Generator")
+st.set_page_config(page_title="Code Comment Generator", page_icon = im)
 st.header("Code Comment Generator")
 st.warning('''The generated output may not always meet your expectations. 
            If you find that the result is not up to the mark or doesn't meet your requirements, please consider hitting the generate button again for an improved outcome.
@@ -72,14 +77,13 @@ if submit_button:
         st.write(response)
 
 # Footer
-footer = """
-    <div style="position: fixed; bottom: 10px; width: 100%; text-align: center; color: #888;">
-        <p style="margin: 0 auto; padding: 10px; display: inline-block;">
-            Made with ❤️ by <a href="https://twitter.com/ishubhamsah" target="_blank" style="text-decoration: none; color: #888;">Shubham</a>
-        </p>
-    </div>
-"""
-
-st.markdown('<style>div.css-1a9ptm4{display:none;}</style>', unsafe_allow_html=True)
+hide_default_format = """
+       <style>
+       #MainMenu {visibility: hidden; }
+       footer {visibility: hidden;}
+       </style>
+       """
+st.markdown(hide_default_format, unsafe_allow_html=True)
+footer = ''' Made with <svg viewBox="0 0 1792 1792" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="height: 0.8rem;"><path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z" fill="#e25555"></path></svg> by Shubham Sah'''
 
 st.markdown(footer, unsafe_allow_html=True)
