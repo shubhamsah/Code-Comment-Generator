@@ -39,7 +39,8 @@ Here is the code snippet:
 def get_gemini_response(question):
     try:
         model = genai.GenerativeModel('gemini-pro')
-        response = model.generate_content(prompt + question)
+        response = model.generate_content(prompt + question, generation_config=genai.types.GenerationConfig(
+                                            candidate_count=1,temperature=temperature))
         return response.text
     except Exception as e:
         st.warning("An error occurred. Please press Generate again or check logs for more details.")
@@ -51,6 +52,11 @@ st.header("Code Comment Generator")
 st.warning('''The generated output may not always meet your expectations. 
            If you find that the result is not up to the mark or doesn't meet your requirements, please consider hitting the generate button again for an improved outcome.
            Use the generated code at your own discretion, and feel free to refine the input or adjust any parameters to achieve the desired comments for your code.''')
+
+st.sidebar.write("Adjust the parameters to control the creativity of the generated comments:")
+st.sidebar.write("\n")
+st.sidebar.write("Temperature: Controls the randomness of the generated text. Higher values (e.g., 1.0) make the output more creative but less focused.")
+temperature = st.slider("Temperature", 0.1, 1.0, 0.7, step=0.1, key="temperature")
 
 # Input text area
 input_text = st.text_area("Input:", key="input")
