@@ -80,4 +80,6 @@ footer = """
     </div>
 """
 
+st.markdown('<style>div.css-1a9ptm4{display:none;}</style>', unsafe_allow_html=True)
+
 st.markdown(footer, unsafe_allow_html=True)
