@@ -44,10 +44,17 @@ st.warning('''The generated output may not always meet your expectations.
            If you find that the result is not up to the mark or doesn't meet your requirements, please consider hitting the generate button again for an improved outcome.
            Use the generated code at your own discretion, and feel free to refine the input or adjust any parameters to achieve the desired comments for your code.''')
 
+st.write("### How to Use")
+st.write("Please input a code snippet in the text area below. The Code Comment Generator will analyze the input and generate comments for your code.")
+st.write("For the best results, provide a clear and concise code snippet along with any specific comment type or language preferences.")
+
 st.sidebar.write("Adjust the parameters to control the creativity of the generated comments:")
 st.sidebar.write("\n")
 st.sidebar.write("Temperature: Controls the randomness of the generated text. Higher values (e.g., 1.0) make the output more creative but less focused.")
 temperature = st.slider("Temperature", 0.1, 1.0, 0.7, step=0.1, key="temperature")
+
+
+
 
 # Input text area
 input_text = st.text_area("Input:", key="input")
