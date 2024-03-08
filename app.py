@@ -135,8 +135,6 @@ def custom_footer():
 def main():
     #Initialize Streamlit
     initialize_streamlit()
-    custom_footer()
-
     # Input text area
     user_input_text = user_input()
     config= generative_config()
@@ -160,6 +158,7 @@ def main():
         if response is not None:
             response_placeholder.subheader("The Response is")
             response_placeholder.write(response)
+      custom_footer()
         
 
 if __name__ == "__main__":
