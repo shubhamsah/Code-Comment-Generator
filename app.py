@@ -74,7 +74,7 @@ def initialize_streamlit():
     """
 
     # Set the page title and layout.
-    st.set_page_config(page_title="Code Comment Generator", layout="wide")
+    st.set_page_config(page_title="Code Comment Generator 💻🤓", layout="wide", page_icon=im)
 
     # Display a header for the application.
     st.header("Code Comment Generator")
