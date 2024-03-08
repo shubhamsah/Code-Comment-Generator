@@ -56,7 +56,6 @@ def get_gemini_response(question, config):
         return response.text
     except Exception as e:
         st.warning("An error occurred. Please press Generate again or check logs for more details.", icon="⚠️")
-        st.exception(e)
         return None
     
 
