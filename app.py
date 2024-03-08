@@ -3,11 +3,6 @@ import streamlit as st
 import google.generativeai as genai
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 
-from PIL import Image
-# Loading Image using PIL
-im = Image.open('./content/App_Icon.png')
-
-
 @st.cache_resource
 def load_models():
     """
@@ -74,10 +69,10 @@ def initialize_streamlit():
     """
 
     # Set the page title and layout.
-    st.set_page_config(page_title="Code Comment Generator 💻🤓", layout="wide", page_icon=im)
+    st.set_page_config(page_title="Code Comment Generator", layout="wide", page_icon= "💻🤓")
 
     # Display a header for the application.
-    st.header("Code Comment Generator")
+    st.header("Code Comment Generator 💻🤓")
 
     # Display a warning message to users.
     warning_message = (
