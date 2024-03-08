@@ -158,7 +158,7 @@ def main():
         if response is not None:
             response_placeholder.subheader("The Response is")
             response_placeholder.write(response)
-      custom_footer()
+    custom_footer()
         
 
 if __name__ == "__main__":
