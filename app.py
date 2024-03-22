@@ -46,6 +46,8 @@ def generate_prompt(code):
 
 Briefly explain the algorithms, data structures, and patterns used. Avoid redundancy but provide enough context for unfamiliar readers. Maintain a professional, helpful tone. Address issues/clarifications respectfully.
 
+You should not generate any new code yourself, but rather understand and comment on the provided code snippet.
+
 Elevate documentation practices, promote collaboration, and enhance developer experience.
 Here is the code snippet for which code comments need to be generated: \n\n{code}
 
